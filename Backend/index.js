@@ -11,7 +11,12 @@ const { authenticateTokens, sendReminderEmail } = require('./utilites');
 
 const express = require('express')
 const app = express()
-const cors = require('cors')
+const cors = require({
+    origin: 'https://interviewprep-ai-rrk.vercel.app',
+    methods: ['GET', 'PUT', 'DELETE', 'POST'],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
+})
 const bcrypt = require('bcrypt')
 
 mongoose.connect(config.connection_string)
