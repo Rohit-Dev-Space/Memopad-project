@@ -8,25 +8,23 @@ const sentNotes = require('./models/sent-note.model')
 const cron = require("node-cron");
 const moment = require("moment");
 const { authenticateTokens, sendReminderEmail } = require('./utilites');
+const PORT = process.env.PORT || 5000;
 
 const express = require('express')
 const app = express()
 const cors = require({
-    origin: 'https://interviewprep-ai-rrk.vercel.app',
+    origin: '*',
     methods: ['GET', 'PUT', 'DELETE', 'POST'],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
 })
 const bcrypt = require('bcrypt')
 
-mongoose.connect(config.connection_string)
+mongoose.connect(process.env.MONGO_URI)
 
 const jwt = require('jsonwebtoken')
 const sentNoteModel = require('./models/sent-note.model')
 app.use(express.json())
-app.use(cors({
-    origin: '*'
-}))
 
 app.get('/', (req, res) => {
     res.json({ data: 'hello' })
@@ -482,8 +480,8 @@ cron.schedule("* * * * *", async () => {
 });
 
 
-app.listen(8000, () => {
-    console.log('Server is running on http://localhost:8000')
+app.listen(PORT, () => {
+    console.log('Server is running on http://localhost:5000')
 })
 
 module.exports = app;
