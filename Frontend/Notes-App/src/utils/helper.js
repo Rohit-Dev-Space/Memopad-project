@@ -1,5 +1,3 @@
-import { pass } from "three/tsl";
-
 export const validator = (email) => {
     const regexp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     return regexp.test(email);
