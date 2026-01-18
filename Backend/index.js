@@ -23,10 +23,10 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
 }))
+app.options('*', cors());
+app.use(express.json())
 const jwt = require('jsonwebtoken')
 const sentNoteModel = require('./models/sent-note.model')
-app.use(express.json())
-
 app.get('/', (req, res) => {
     res.json({ data: 'hello' })
 })
