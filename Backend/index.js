@@ -17,24 +17,11 @@ const bcrypt = require('bcrypt')
 
 mongoose.connect(process.env.MONGO_URI)
 
-const allowedOrigins = [
-    'http://localhost:5173',
-    'https://memopad-project.vercel.app'
-];
-
 app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('CORS blocked'));
-        }
-    },
+    origin: true, // 👈 echoes the request origin
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
-
-app.options('*', cors());
 
 app.use(express.json())
 const jwt = require('jsonwebtoken')
