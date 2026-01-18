@@ -5,7 +5,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { passLength, validator } from "../../utils/helper";
 import axiosInstace from "../../utils/axiosInstance";
-import { div } from "three/tsl";
 
 const Login = () => {
 

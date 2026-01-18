@@ -2,8 +2,7 @@ import React from "react";
 import Home from "./pages/Home/Home";
 import SignUP from "./pages/SignUp/SignUP";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
-import Login from "./pages/LoginPg/login";
-
+import Login from './pages/LoginPg/Login'
 const routes = (
   < Router >
     <Routes>

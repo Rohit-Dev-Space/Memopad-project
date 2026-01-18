@@ -18,7 +18,7 @@ const bcrypt = require('bcrypt')
 mongoose.connect(process.env.MONGO_URI)
 
 app.use(cors({
-    origin: '*',
+    origin: 'https://memopad-plus.onrender.com',
     methods: ['GET', 'PUT', 'DELETE', 'POST'],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
