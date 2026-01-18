@@ -21,7 +21,6 @@ app.use(cors({
     origin: 'https://memopad-project.vercel.app',
     methods: ['GET', 'PUT', 'DELETE', 'POST'],
     allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true
 }))
 app.options('*', cors());
 app.use(express.json())
