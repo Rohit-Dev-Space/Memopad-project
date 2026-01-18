@@ -18,7 +18,7 @@ const bcrypt = require('bcrypt')
 mongoose.connect(process.env.MONGO_URI)
 
 app.use(cors({
-    origin: true, // 👈 echoes the request origin
+    origin: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
